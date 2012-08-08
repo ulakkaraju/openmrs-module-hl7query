@@ -13,6 +13,7 @@
  */
 package org.openmrs.module.hl7query;
 
+import java.util.Date;
 import java.util.Map;
 
 import org.junit.Assert;
@@ -140,5 +141,37 @@ public class HL7TemplateFunctionsTest extends BaseModuleContextSensitiveTest {
 		HL7TemplateFunctions functions = new HL7TemplateFunctions();
 		
 		Assert.assertEquals("Value is: acustomvalue", functions.evaluateTemplate("customgp", null));
+	}
+	/**
+	 * @see HL7TemplateFunctions#formatDate(Date,String)
+	 * @verifies correct date format
+	 */
+	@Test
+	public void formatDate_shouldAllowNullForDateAttribute() throws Exception {
+		HL7TemplateFunctions functions = new HL7TemplateFunctions();
+		Assert.assertNotNull(functions.formatDate(null,"EEE, dd MMM yyyy HH:mm:ss z"));
+		Assert.assertNotNull(functions.formatDate(null,"yyyy-MM-dd'T'HH:mm:ssz"));
+	}
+	/**
+	 * @see HL7TemplateFunctions#formatDate(Date,String)
+	 * @verifies correct date format
+	 */
+	@Test
+	public void formatDate_shouldAllowNullForFormatAttribute() throws Exception {
+		HL7TemplateFunctions functions = new HL7TemplateFunctions();
+		Date date=new Date();
+		Assert.assertNotNull(functions.formatDate(null,null));
+		Assert.assertNotNull(functions.formatDate(date,null));
+	}
+	
+	/**
+	 * @see HL7TemplateFunctions#formatDate(Date,String)
+	 * @verifies correct date format
+	 */
+	@Test
+	public void formatDate_shouldReturnAFormatedStringRepresentationOfTheDate() throws Exception {
+		HL7TemplateFunctions functions = new HL7TemplateFunctions();
+		Date date=new Date();
+		Assert.assertNotNull(functions.formatDate(date,"yyyy-MM-dd'T'HH:mm:ssz"));
 	}
 }

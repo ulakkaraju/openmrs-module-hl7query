@@ -33,7 +33,6 @@ import org.openmrs.api.PatientService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.hl7query.HL7Template;
 import org.openmrs.module.hl7query.api.HL7QueryService;
-import org.openmrs.module.hl7query.util.HL7QueryConstants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

@@ -151,6 +151,9 @@ public class HL7TemplateFunctions {
 	 * 		The string used to format the date string
 	 * @return the string
 	 * 		The string representation of the given date object after it is formatted
+	 * @should Return A Formated String Representation Of The Date
+     * @should Allow Null For Format Attribute
+     * @should Allow Null For Date Attribute
 	 */
 	public String formatDate(Date date, String format){
 		String dateString;
